@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Page not found",
     description: "Sorry, the page you are looking for does not exist.",
     url: "https://08-zustand-black-xi.vercel.app/not-found",
-    images: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+    images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
   },
 };
 
