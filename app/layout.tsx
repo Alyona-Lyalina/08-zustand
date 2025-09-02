@@ -6,9 +6,9 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
-  weight: ["400", "500", "700"],
+  weight: ["400","700"],
   style: ["normal", "italic"],
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
   display: "swap",
   variable: "--font-roboto",
 });

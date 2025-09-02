@@ -25,6 +25,7 @@ export async function generateMetadata({
   const title = note.title;
   const description =
     (note.content && note.content.slice(0, 120)) || "Note details in NoteHub.";
+  const imageUrl = "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg";
 
   return {
     title,
@@ -35,16 +36,22 @@ export async function generateMetadata({
       url: `https://08-zustand-black-xi.vercel.app/notes/${note.id}`,
       images: [
         {
-          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: "NoteHub preview image",
         },
       ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
     },
   };
-} 
-
+}
 
 export default async function NoteDetailsPage({ params }: NoteDetailProps) {
   const queryClient = new QueryClient();
