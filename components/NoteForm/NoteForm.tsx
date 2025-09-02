@@ -10,12 +10,15 @@ import css from "./NoteForm.module.css";
 
 const tags: NoteTag[] = ["Todo", "Work", "Personal", "Meeting", "Shopping"];
 
-const NoteForm = () => {
+interface NoteFormProps {
+  onCancel?: () => void; 
+}
+
+const NoteForm = ({ onCancel }: NoteFormProps) => {
   const router = useRouter();
   const queryClient = useQueryClient();
   const { draft, setDraft, clearDraft } = useNoteDraftStore();
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
 
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
@@ -36,12 +39,11 @@ const NoteForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
- 
   const { mutate, isPending } = useMutation({
     mutationFn: createNote,
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["notes"] });
-      clearDraft(); 
+      clearDraft();
       router.push("/notes/filter/All");
     },
     onError: (error) => {
@@ -56,9 +58,10 @@ const NoteForm = () => {
     }
   };
 
-  const handleCancel = () => {
-    router.push("/notes/filter/All"); 
-  };
+   const handleCancel = () => {
+     if (onCancel) onCancel(); 
+     else router.push("/notes/filter/All");
+   };
 
   const handleInputChange = (field: keyof typeof draft, value: string) => {
     setDraft({ [field]: value });
