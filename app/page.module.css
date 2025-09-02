@@ -1,0 +1,37 @@
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  flex:1;
+  transform: translateY(-80px);
+  width: 90%;
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 0 16px 16px;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 60px;
+  text-align: center;
+ background: linear-gradient(to bottom, #dd93be, #000000); 
+  background-clip: text;       
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+.description {
+  font-size: 20px;
+  color: #444444;
+  line-height: 28px;
+  margin-bottom: 16px;
+  
+}

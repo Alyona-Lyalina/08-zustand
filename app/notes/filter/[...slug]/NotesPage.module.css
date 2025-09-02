@@ -1,0 +1,30 @@
+.app {
+  width: 100%;
+  max-width: 1440px;
+  margin: 48px auto;
+  padding: 0 16px 16px;
+  flex: 1;
+}
+
+.toolbar {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.button {
+  padding: 6px 12px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ea4db3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #d32496;
+}
