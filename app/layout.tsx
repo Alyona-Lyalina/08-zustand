@@ -14,14 +14,14 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  // title: "NoteHub",
-  // description:
-  //   "NoteHub is a simple and efficient app for managing personal notes.",
+  title: "NoteHub",
+  description:
+    "NoteHub is a simple and efficient app for managing personal notes.",
   openGraph: {
     title: "NoteHub",
     description:
       "NoteHub is a simple and efficient app for managing personal notes.",
-
+    url: "https://08-zustand-black-xi.vercel.app/",
     images: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
   },
 };
