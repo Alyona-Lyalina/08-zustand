@@ -22,7 +22,8 @@
 .menuList {
   position: absolute;
   top: calc(100% + 6px);
-  left: 0;
+  left: 30%;
+  transform: translateX(-50%);
   background-color: #333;
   border: 1px solid #ddd;
   border-radius: 8px;

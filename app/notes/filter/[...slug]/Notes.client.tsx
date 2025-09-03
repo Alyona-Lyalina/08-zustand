@@ -11,8 +11,7 @@ import type { FilterTag } from "@/types/note";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
-import Modal from "@/components/Modal/Modal";
-import NoteForm from "@/components/NoteForm/NoteForm";
+import Link from "next/link";
 import css from "./NotesPage.module.css";
 import Loader from "@/components/Loader/Loader";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
@@ -27,7 +26,6 @@ interface NotesClientProps {
 const NotesClient = ({ tag }: NotesClientProps) => {
   const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
 
   const handleSearchChange = (query: string) => {
@@ -64,19 +62,14 @@ const NotesClient = ({ tag }: NotesClientProps) => {
             onPageChange={setPage}
           />
         )}
-        <button className={css.button} onClick={() => setIsModalOpen(true)}>
+        <Link href="/notes/action/create" className={css.button}>
           Create note +
-        </button>
+        </Link>
       </header>
       {!!data && data.notes.length > 0 ? (
         <NoteList notes={data.notes} />
       ) : (
         <p className={css.noNotes}>No notes found.</p>
-      )}
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm onCancel={() => setIsModalOpen(false)} />
-        </Modal>
       )}
     </div>
   );
